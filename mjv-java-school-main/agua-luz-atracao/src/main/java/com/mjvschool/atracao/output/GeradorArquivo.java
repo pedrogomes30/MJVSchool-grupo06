@@ -23,10 +23,8 @@ public class GeradorArquivo {
 		
 		File output = new File("C:\\estudo\\mjv-java-school\\agua-luz-output");
 		if(!output.exists())
-			output.mkdirs();
-		
+			output.mkdirs(); 		
 		Path path = Paths.get("C:\\estudo\\mjv-java-school\\agua-luz-output\\agua-luz-contratos.csv");
-
 		try {
 			Files.write(path, conteudo.toString().getBytes(StandardCharsets.UTF_8));
 		} catch (IOException e) {
@@ -41,6 +39,7 @@ public class GeradorArquivo {
 			conteudo.append(ct.getCadastro().getCpf());
 			conteudo.append(TextoUtil.ajustar(ct.getCadastro().getNome(), 30) );
 			conteudo.append(ct.getCadastro().getCelular());
+			conteudo.append(TextoUtil.ajustar())
 			conteudo.append("\n");
 		}
 		

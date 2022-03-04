@@ -1,14 +1,19 @@
-package notification.model.contrato;
+package Model;
 
 import java.util.Date;
-
-import notification.model.cadastro.Cadastro;
 
 //java beans
 public class Contrato {
 	private long numeroProtocolo;
-	private Cadastro cadastro;
+	private Pessoa cadastro;
 	private Date dataHora;
+	private Servico servico;
+	public Servico getServico() {
+		return servico;
+	}
+	public void setServico(Servico servico) {
+		this.servico = servico;
+	}
 	public void setDataHora(Date dataHora) {
 		this.dataHora = dataHora;
 	}
@@ -21,10 +26,10 @@ public class Contrato {
 	public void setNumeroProtocolo(long numeroProtocolo) {
 		this.numeroProtocolo = numeroProtocolo;
 	}
-	public Cadastro getCadastro() {
+	public Pessoa getCadastro() {
 		return cadastro;
 	}
-	public void setCadastro(Cadastro cadastro) {
+	public void setCadastro(Pessoa cadastro) {
 		this.cadastro = cadastro;
 	}
 	@Override

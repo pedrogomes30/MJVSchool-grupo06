@@ -1,11 +1,17 @@
-package notification.model.cadastro;
+package Model;
 
 public class Pessoa {
-	private String nome;
 	private String cpf;
-	private String rg;
-	private String telefone;
+	private String nome;
+	private String celular;
 	private Endereco endereco;
+	private Pais pais;
+	public void setPais(Pais pais) {
+		this.pais = pais;
+	}
+	public Pais getPais() {
+		return pais;
+	}
 	public String getNome() {
 		return nome;
 	}
@@ -15,20 +21,15 @@ public class Pessoa {
 	public String getCpf() {
 		return cpf;
 	}
+	
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-	public String getRg() {
-		return rg;
+	public String getCelular() {
+		return celular;
 	}
-	public void setRg(String rg) {
-		this.rg = rg;
-	}
-	public String getTelefone() {
-		return telefone;
-	}
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
+	public void setCelular(String celular) {
+		this.celular = celular;
 	}
 	public Endereco getEndereco() {
 		return endereco;

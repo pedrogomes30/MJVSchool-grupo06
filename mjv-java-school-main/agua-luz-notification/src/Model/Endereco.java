@@ -1,5 +1,4 @@
-package notification.model.cadastro;
-
+package Model;
 public class Endereco {
 	private String logradouro;
 	private String numero;
