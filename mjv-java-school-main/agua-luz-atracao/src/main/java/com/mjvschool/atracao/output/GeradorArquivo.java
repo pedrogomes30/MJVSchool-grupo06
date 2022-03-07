@@ -56,14 +56,14 @@ public class GeradorArquivo {
 		
 		for(Contrato ct: contratos) {
 			conteudo.append(ct.getCadastro().getCpf().replaceAll("\\p{Punct}", ""));
-			conteudo.append(TextoUtil.preencher(ct.getCadastro().getRg().replaceAll("\\p{Punct}", ""),10));
+			conteudo.append(TextoUtil.ajustar(ct.getCadastro().getRg().replaceAll("\\p{Punct}", ""),10));
 			conteudo.append(TextoUtil.ajustar(ct.getCadastro().getNome(), 30).toUpperCase());	
 			conteudo.append(ct.getCadastro().getCelular().replaceAll("\\p{Punct}", ""));
 			conteudo.append(TextoUtil.ajustar(ct.getCadastro().getEndereco().getLogradouro().toUpperCase(),20));
 			conteudo.append(String.format("%06d",Integer.parseInt(ct.getCadastro().getEndereco().getNumero())));
 			conteudo.append(TextoUtil.ajustar(ct.getCadastro().getEndereco().getComplemento(), 10));	
-			conteudo.append(TextoUtil.preencher(ct.getCadastro().getEndereco().getBairro().toUpperCase(), 15));
-			conteudo.append(TextoUtil.preencher(ct.getCadastro().getEndereco().getCidade().toUpperCase(),30));
+			conteudo.append(TextoUtil.ajustar(ct.getCadastro().getEndereco().getBairro().toUpperCase(), 15));
+			conteudo.append(TextoUtil.ajustar(ct.getCadastro().getEndereco().getCidade().toUpperCase(),30));
 			conteudo.append(ct.getCadastro().getEndereco().getUf().toUpperCase());
 			conteudo.append(ct.getCadastro().getEndereco().getCep().replaceAll("\\p{Punct}", ""));
 			conteudo.append(TextoUtil.converterValorProtocolo(ct.getNumeroProtocolo()));
