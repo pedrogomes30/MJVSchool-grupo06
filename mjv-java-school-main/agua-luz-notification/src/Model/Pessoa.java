@@ -3,11 +3,18 @@ package Model;
 public class Pessoa {
 	private String cpf;
 	private String nome;
+	private String rg;
 	private String celular;
 	private Endereco endereco;
 	private Pais pais;
 	public void setPais(Pais pais) {
 		this.pais = pais;
+	}
+	public String getRg() {
+		return rg;
+	}
+	public void setRg(String rg) {
+		this.rg = rg;
 	}
 	public Pais getPais() {
 		return pais;

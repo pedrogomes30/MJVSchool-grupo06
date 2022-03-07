@@ -4,37 +4,52 @@ import java.util.Date;
 
 //java beans
 public class Contrato {
-	private long numeroProtocolo;
-	private Pessoa cadastro;
-	private Date dataHora;
-	private Servico servico;
-	public Servico getServico() {
-		return servico;
+	private long protocolo;
+	private Date data;
+	private Date hora;
+	private Double valor;
+	//chaves estrangeiras
+	private Pessoa pessoa;
+	private Tipo tipo;
+	public Tipo getTipo() {
+		return tipo;
 	}
-	public void setServico(Servico servico) {
-		this.servico = servico;
+	public Double getValor() {
+		return valor;
 	}
-	public void setDataHora(Date dataHora) {
-		this.dataHora = dataHora;
+	public void setValor(Double valor) {
+		this.valor = valor;
 	}
-	public Date getDataHora() {
-		return dataHora;
+	public Date getHora() {
+		return hora;
 	}
-	public long getNumeroProtocolo() {
-		return numeroProtocolo;
+	public void setHora(Date hora) {
+		this.hora = hora;
 	}
-	public void setNumeroProtocolo(long numeroProtocolo) {
-		this.numeroProtocolo = numeroProtocolo;
+	public void setTipo(Tipo tipo) {
+		this.tipo = tipo;
 	}
-	public Pessoa getCadastro() {
-		return cadastro;
+	public void setData(Date data) {
+		this.data = data;
 	}
-	public void setCadastro(Pessoa cadastro) {
-		this.cadastro = cadastro;
+	public Date getData() {
+		return data;
+	}
+	public long getProtocolo() {
+		return protocolo;
+	}
+	public void setProtocolo(long protocolo) {
+		this.protocolo = protocolo;
+	}
+	public Pessoa getPessoa() {
+		return pessoa;
+	}
+	public void setPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
 	}
 	@Override
 	public String toString() {
-		return "Contrato [numeroProtocolo=" + numeroProtocolo + ", dataHora=" + dataHora + "]";
+		return "Contrato [numeroProtocolo=" + protocolo + ", data=" + data + "]";
 	}
 	
 }

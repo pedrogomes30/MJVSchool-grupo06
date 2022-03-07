@@ -1,16 +1,18 @@
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import Model.Contrato;
-import Model.Endereco;
+import util.getContentsFromFile;
+import util.Notification;
 
 public class App {
 	public static void main(String[] args) {
-		Contrato contrato = new Contrato();
-		contrato.setNumeroProtocolo(123);
-		
-		System.out.println(contrato.getNumeroProtocolo());
-		
-		Endereco endereco = new Endereco();
-		endereco.setEstado("SP"); 
+		List<Contrato> contratos = new ArrayList<Contrato>();
+		contratos = getContentsFromFile.docHandle(false);
+		for(Contrato ct: contratos) {
+			Notification.sendNotification(ct);
+		}
 	}
 }
