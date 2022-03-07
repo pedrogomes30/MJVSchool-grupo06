@@ -1,5 +1,7 @@
 package com.mjvschool.atracao.app;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
 
@@ -26,54 +28,34 @@ public class AguaLuzAtracaoApp {
 	}
 	private static void faseAtracao() {
 		Contrato contrato1 = new Contrato();
-		contrato1.setNumeroProtocolo(123);
+		contrato1.setNumeroProtocolo(1984365);
 		contrato1.setServico(Servico.LUZ);
 		
 		Pessoa pessoa = new Pessoa();
-		pessoa.setCpf("56737284094");
-		pessoa.setNome("Gleyson Sampaio de Oliveira");
-		pessoa.setRg("89789");
+		pessoa.setCpf("007.324.223.21");
+		pessoa.setNome("Raimundo Nonato Loureiro Castelo Branco");
+		pessoa.setCelular("(11)99768-1515");
+		pessoa.setRg("337655");
 		pessoa.setPais(Pais.BRASIL);
-		
-		pessoa.setCelular("98965498760");
 		
 		
 		Endereco endereco = new Endereco();
-		endereco.setBairro("Santo Antonio");
-		endereco.setCep("27310657");
-		endereco.setCidade("S�o Paulo");
-		endereco.setEstado("SP");
-		endereco.setLogradouro("Rua das Cajazeiras 26");
-		endereco.setNumero("243");
+		endereco.setBairro("São Sebastião");
+		endereco.setCep("07.210.715");
+		endereco.setCidade("São Raimundo Nonato");
+		endereco.setUf("Sp");
+		endereco.setLogradouro("Rua Sebastião Firmino");
+		endereco.setNumero("123");
+		endereco.setComplemento("AP 210 BL CENTAURO");
 		pessoa.setEndereco(endereco);
 		contrato1.setCadastro(pessoa);
-		contrato1.setDataHora(new Date());
-		
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("HH:mm");
+        LocalDateTime teste = LocalDateTime.of(2022, 05, 07, 15, 21);
+        contrato1.setData(formatter.format(teste));
+		contrato1.setHora(formatter2.format(teste));
+
 		contratoRepositorio.gravar(contrato1);
 		
-		Contrato contrato2 = new Contrato();
-		contrato2.setNumeroProtocolo(78678);
-		contrato2.setServico(Servico.AGUA);
-		
-		Pessoa pessoa2 = new Pessoa();
-		pessoa2.setCpf("11094986089");
-		pessoa2.setNome("Raimundo Nonato Loureiro Castelo Branco");
-		pessoa2.setRg("98908");
-		pessoa2.setPais(Pais.ESTADOS_UNIDOS);
-		
-		pessoa2.setCelular("11976349678");
-		
-		Endereco endereco2 = new Endereco();
-		endereco2.setBairro("Santo Antonio");
-		endereco2.setCep("27310657");
-		endereco2.setCidade("S�o Paulo");
-		endereco2.setEstado("SP");
-		endereco2.setLogradouro("Rua das Marias");
-		endereco2.setNumero("243");
-		pessoa2.setEndereco(endereco2);
-		contrato2.setCadastro(pessoa2);
-		contrato2.setDataHora(new Date());
-		
-		contratoRepositorio.gravar(contrato2);
 	}
 }

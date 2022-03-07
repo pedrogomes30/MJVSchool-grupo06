@@ -1,8 +1,8 @@
 package com.mjvschool.atracao.model.cadastro;
 
 public enum Servico {
-	AGUA("Água",137.21),
-	LUZ("Luz",132.15);
+	AGUA("AGUA",137.21),
+	LUZ("LUZ",132.15);
 	
 	private String nome;
 	private Double valor;
