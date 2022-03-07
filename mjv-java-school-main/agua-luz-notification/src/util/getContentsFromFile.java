@@ -94,29 +94,30 @@ public class getContentsFromFile {
                 Contrato contrato           = new Contrato();
                 Pessoa pessoa               = new Pessoa();
                 Endereco endereco           = new Endereco();
+                int carac                   = 0;
                 //pessoa
-                pessoa.setCpf               (linhaAux.substring(0,11));//11 caracteres
-                pessoa.setRg                (linhaAux.substring(11,17));//10 caracteres
-                pessoa.setNome              (linhaAux.substring(17,47));//30 caracteres
-                pessoa.setCelular           (linhaAux.substring(47,58));//11 caracteres
+                pessoa.setCpf               (linhaAux.substring(0       ,(carac+11)));//11 caracteres
+                pessoa.setRg                (linhaAux.substring(carac   ,(carac+10)));//10 caracteres
+                pessoa.setNome              (linhaAux.substring(carac   ,(carac+30)));//30 caracteres
+                pessoa.setCelular           (linhaAux.substring(carac   ,(carac+11)));//11 caracteres
                 //endereco
-                endereco.setLogradouro      (linhaAux.substring(58,78));//20 caracteres
-                endereco.setNumero          (linhaAux.substring(78,84));//06 caracteres
-                endereco.setComplemento     (linhaAux.substring(84,94));//10 caracteres
-                endereco.setBairro          (linhaAux.substring(94,109));//15 caracteres
-                endereco.setCidade          (linhaAux.substring(109,139));//30 caracteres
-                endereco.setUf              (linhaAux.substring(139,141));//02 caracteres
-                endereco.setCep             (linhaAux.substring(141,149));//08 caracteres
+                endereco.setLogradouro      (linhaAux.substring(carac   ,(carac+20)));//20 caracteres
+                endereco.setNumero          (linhaAux.substring(carac   ,(carac+6)));//06 caracteres
+                endereco.setComplemento     (linhaAux.substring(carac   ,(carac+10)));//10 caracteres
+                endereco.setBairro          (linhaAux.substring(carac   ,(carac+15)));//15 caracteres
+                endereco.setCidade          (linhaAux.substring(carac   ,(carac+30)));//30 caracteres
+                endereco.setUf              (linhaAux.substring(carac   ,(carac+2)));//02 caracteres
+                endereco.setCep             (linhaAux.substring(carac   ,(carac+8)));//08 caracteres
                 //contrato
-                contrato.setProtocolo       (Long.parseLong(linhaAux.substring(149,159)));//10 caracteres
+                contrato.setProtocolo       (Long.parseLong(linhaAux.substring(carac,(carac+10))));//10 caracteres
                 //data
-                contrato.setData            (dataConvert(linhaAux.substring(159,167)));//08 caracteres
+                contrato.setData            (dataConvert(linhaAux.substring(carac,(carac+8))));//08 caracteres
                 //hora
-                contrato.setHora            (hourConvert(linhaAux.substring(167,171)));//04 caracteres
+                contrato.setHora            (hourConvert(linhaAux.substring(carac,(carac+4))));//04 caracteres
                 //definir tipo
-                Tipo tipo                   = linhaAux.substring(171,172) == "A"? Tipo.AGUA : Tipo.LUZ;//01 caractere
+                Tipo tipo                   = linhaAux.substring(carac,(carac+1)) == "A"? Tipo.AGUA : Tipo.LUZ;//01 caractere
                 contrato.setTipo            (tipo);
-                contrato.setValor           (valorConvert(linhaAux.substring(172,180)));//08 caracteres
+                contrato.setValor           (valorConvert(linhaAux.substring(carac,(carac+8))));//08 caracteres
                 //chaves estrangeiras
                 pessoa.setEndereco          (endereco);
                 contrato.setPessoa          (pessoa);
@@ -124,7 +125,7 @@ public class getContentsFromFile {
             }
         }catch(Exception e){
             System.out.println("Documento formatado de forma incorreta!\n"+patch);
-            //e.printStackTrace();
+            e.printStackTrace();
         }        
         return contratos;
     }
@@ -132,7 +133,7 @@ public class getContentsFromFile {
     public static Date dataConvert (String data) throws ParseException{
         Date dataConvertida         = null;
         StringBuilder SBdata        = new StringBuilder(data);
-        //SBdata                      = SBdata.insert(4,"/").insert(7,"/");
+        SBdata                      = SBdata.insert(4,"/").insert(7,"/");
         SimpleDateFormat formato    = new SimpleDateFormat("dd/MM/yyyy"); 
         dataConvertida              = formato.parse(SBdata.toString());
         return dataConvertida;
@@ -141,7 +142,7 @@ public class getContentsFromFile {
     public static Date hourConvert (String hora) throws ParseException{
         Date horaConvertida         = null;
         StringBuilder SBhora        = new StringBuilder(hora);
-        //SBhora                      = SBhora.insert(2,":");
+        SBhora                      = SBhora.insert(2,":");
         SimpleDateFormat formato    = new SimpleDateFormat("HH:mm"); 
         horaConvertida              = formato.parse(SBhora.toString());
         return horaConvertida;
@@ -149,7 +150,7 @@ public class getContentsFromFile {
 
     public static Double valorConvert (String valor){
         StringBuilder SBvalor       = new StringBuilder(valor);
-        //SBvalor                     = SBvalor.insert(5,',');
+        SBvalor                     = SBvalor.insert(5,'.');
         return Double.parseDouble(SBvalor.toString());
     }
     public static String cpfConvert (String cpf){
