@@ -94,30 +94,48 @@ public class getContentsFromFile {
                 Contrato contrato           = new Contrato();
                 Pessoa pessoa               = new Pessoa();
                 Endereco endereco           = new Endereco();
-                int carac                   = 0;
+                int ini                     = 0;
+                int fim                     = 0;
+            
                 //pessoa
-                pessoa.setCpf               (linhaAux.substring(0       ,(carac+11)));//11 caracteres
-                pessoa.setRg                (linhaAux.substring(carac   ,(carac+10)));//10 caracteres
-                pessoa.setNome              (linhaAux.substring(carac   ,(carac+30)));//30 caracteres
-                pessoa.setCelular           (linhaAux.substring(carac   ,(carac+11)));//11 caracteres
+                ini                         = fim;fim +=11;
+                pessoa.setCpf               (linhaAux.substring(ini,fim));//11 caracteres
+                ini                         = fim;fim +=10;
+                pessoa.setRg                (linhaAux.substring(ini,fim));//10 caracteres
+                ini                         = fim;fim +=30;
+                pessoa.setNome              (linhaAux.substring(ini,fim));//30 caracteres
+                ini                         = fim;fim +=11;
+                pessoa.setCelular           (linhaAux.substring(ini,fim));//11 caracteres
                 //endereco
-                endereco.setLogradouro      (linhaAux.substring(carac   ,(carac+20)));//20 caracteres
-                endereco.setNumero          (linhaAux.substring(carac   ,(carac+6)));//06 caracteres
-                endereco.setComplemento     (linhaAux.substring(carac   ,(carac+10)));//10 caracteres
-                endereco.setBairro          (linhaAux.substring(carac   ,(carac+15)));//15 caracteres
-                endereco.setCidade          (linhaAux.substring(carac   ,(carac+30)));//30 caracteres
-                endereco.setUf              (linhaAux.substring(carac   ,(carac+2)));//02 caracteres
-                endereco.setCep             (linhaAux.substring(carac   ,(carac+8)));//08 caracteres
+                ini                         = fim;fim +=20;
+                endereco.setLogradouro      (linhaAux.substring(ini,fim));//20 caracteres
+                ini                         = fim;fim +=6;
+                endereco.setNumero          (linhaAux.substring(ini,fim));//06 caracteres
+                ini                         = fim;fim +=10;
+                endereco.setComplemento     (linhaAux.substring(ini,fim));//10 caracteres
+                ini                         = fim;fim +=15;
+                endereco.setBairro          (linhaAux.substring(ini,fim));//15 caracteres
+                ini                         = fim;fim +=30;
+                endereco.setCidade          (linhaAux.substring(ini,fim));//30 caracteres
+                ini                         = fim;fim +=2;
+                endereco.setUf              (linhaAux.substring(ini,fim));//02 caracteres
+                ini                         = fim;fim +=8;
+                endereco.setCep             (linhaAux.substring(ini,fim));//08 caracteres
                 //contrato
-                contrato.setProtocolo       (Long.parseLong(linhaAux.substring(carac,(carac+10))));//10 caracteres
+                ini                         = fim;fim +=10;
+                contrato.setProtocolo       (Long.parseLong(linhaAux.substring(ini,fim)));//10 caracteres
                 //data
-                contrato.setData            (dataConvert(linhaAux.substring(carac,(carac+8))));//08 caracteres
+                ini                         = fim;fim +=8;
+                contrato.setData            (dataConvert(linhaAux.substring(ini,fim)));//08 caracteres
                 //hora
-                contrato.setHora            (hourConvert(linhaAux.substring(carac,(carac+4))));//04 caracteres
+                ini                         = fim;fim +=4;
+                contrato.setHora            (hourConvert(linhaAux.substring(ini,fim)));//04 caracteres
                 //definir tipo
-                Tipo tipo                   = linhaAux.substring(carac,(carac+1)) == "A"? Tipo.AGUA : Tipo.LUZ;//01 caractere
+                ini                         = fim;fim +=1;
+                Tipo tipo                   = linhaAux.substring(ini,fim) == "A"? Tipo.AGUA : Tipo.LUZ;//01 caractere
                 contrato.setTipo            (tipo);
-                contrato.setValor           (valorConvert(linhaAux.substring(carac,(carac+8))));//08 caracteres
+                ini                         = fim;fim +=8;
+                contrato.setValor           (valorConvert(linhaAux.substring(ini,fim)));//08 caracteres
                 //chaves estrangeiras
                 pessoa.setEndereco          (endereco);
                 contrato.setPessoa          (pessoa);
