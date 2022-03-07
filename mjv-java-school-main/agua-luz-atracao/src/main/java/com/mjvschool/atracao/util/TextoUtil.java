@@ -15,8 +15,28 @@ public class TextoUtil {
 		novaString = cortar(novaString, tamanhoMaximo);
 		return novaString;
 	}
-	public static void main(String[] args) {
-		String nomeCompleto = "Gleyson Sampaio de Oliveira";
-		System.out.println(cortar(nomeCompleto, 30));
+	public static String converterValor(Double valor){
+		double valor1 = valor;
+		String str = String.valueOf(valor1);
+		str = str.replaceAll("\\D+","");
+		str =  "000"+ str ;
+		return str;
 	}
+	public static String converterValorProtocolo(long valor){
+		long valor1 = valor;
+		String str = String.valueOf(valor1);
+		str = str.replaceAll("\\D+","");
+		str =  "000"+ str ;
+		return str;
+	}
+	public static char primeiraLetra(String nome){
+		char inicial = nome.charAt(0);
+		return inicial;
+	}
+	public static String dataNova(String data){
+		String[] s = data.split("/"); 
+		String novaData = s[2]+"/"+s[1]+"/"+s[0];
+		return novaData;
+	}
+	
 }
