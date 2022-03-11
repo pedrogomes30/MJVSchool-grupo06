@@ -51,7 +51,7 @@ public class getContentsFromFile {
                 System.out.println(pessoa.getCpf());
                 pessoa.setRg                (aux[1]);
                 pessoa.setNome              (aux[2]);
-                pessoa.setCelular           (aux[3]);//criar ajuste
+                pessoa.setCelular           (aux[3]);
                 //endereco
                 endereco.setLogradouro      (aux[4]);
                 endereco.setNumero          (aux[5]);
@@ -59,7 +59,7 @@ public class getContentsFromFile {
                 endereco.setBairro          (aux[7]);
                 endereco.setCidade          (aux[8]);
                 endereco.setUf              (aux[9]);
-                endereco.setCep             (aux[10]);//criar ajuste
+                endereco.setCep             (aux[10]);
                 //contrato
                 contrato.setProtocolo       (Long.parseLong(aux[11]));
                 //data

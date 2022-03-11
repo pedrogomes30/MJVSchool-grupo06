@@ -1,0 +1,4 @@
+com\mjv\jdbc\repository\AlunoRepository.class
+com\mjv\jdbc\util\FabricaConexao.class
+com\mjv\jdbc\app\EscolaApp.class
+com\mjv\jdbc\model\Aluno.class
