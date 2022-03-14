@@ -10,9 +10,9 @@ public class FabricaConexao {
 		
 		if(conexao==null) {
 			//Class.forName("org.mysql.Driver"); 
-			String url="jdbc:mySql://localhost:3306/mjv_school";
+			String url="jdbc:mySql://localhost:3306/karolineg";
 			String user = "root";
-			String pass = "grupo06school";
+			String pass = "root";
 			conexao = DriverManager.getConnection(url, user, pass);
 			System.out.println("Conexao realizada com sucesso");
 		}
