@@ -1,5 +1,7 @@
 package com.mjv.jdbc.app;
 
+import java.util.List;
+
 import com.mjv.jdbc.model.Aluno;
 import com.mjv.jdbc.repository.AlunoRepository;
 import com.mjv.jdbc.util.FabricaConexao;
@@ -15,11 +17,16 @@ public class EscolaApp {
 			
 			
 			AlunoRepository alunoRepository = new AlunoRepository();
-			alunoRepository.gravar(alunos);
+			//alunoRepository.gravar(alunos);
 			//alunoRepository.update(alunos);
 			//alunoRepository.delete(alunos);
-			//alunoRepository.read(alunos);
 			
+			FabricaConexao.fecharConexao();
+
+			List<Aluno> mostrar = alunoRepository.read(true);
+			for(Aluno a: mostrar) {
+				System.out.println(a);
+			}
 			FabricaConexao.fecharConexao();
 			
 			

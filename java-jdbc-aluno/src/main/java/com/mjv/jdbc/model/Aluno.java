@@ -36,6 +36,10 @@ public class Aluno {
 	public void setAtivo(boolean ativo) {
 		this.ativo = ativo;
 	}
+	@Override
+	public String toString() {
+		return "Aluno [id=" + id + ", nome=" + nome + ", sexo=" + sexo + ", altura=" + altura + ", ativo=" + ativo + "]";
+	}
 	
 	
 }

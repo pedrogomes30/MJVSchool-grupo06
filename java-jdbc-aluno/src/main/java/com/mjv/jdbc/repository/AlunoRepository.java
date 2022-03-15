@@ -96,6 +96,32 @@ public class AlunoRepository {
             e.printStackTrace();
         }
     }
+	
+	public List<Aluno> read(Boolean ativo) {
+		List<Aluno> alunos = new ArrayList<>();
+		try {
+			FabricaConexao.abrirConexao();
+            Connection connection = FabricaConexao.getConexao();
+			PreparedStatement procedimentoSql = connection.prepareStatement("SELECT * FROM tab_aluno where ativo = ?"); 
+			procedimentoSql.setBoolean(1, ativo);
+			ResultSet rs = procedimentoSql.executeQuery();
+			while(rs.next()) {
+				
+				Aluno aluno = new Aluno();
+				aluno.setId(rs.getInt("id"));
+				aluno.setNome(rs.getString("nome"));
+				aluno.setAltura(rs.getDouble("altura"));
+				aluno.setSexo(rs.getString("sexo"));
+				aluno.setAtivo(rs.getBoolean("ativo"));
+				
+				alunos.add(aluno);
+			}
+			procedimentoSql.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return alunos;
+	}
 
 
 }
